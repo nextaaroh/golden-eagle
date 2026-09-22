@@ -55,8 +55,8 @@ export const triggerAlarmVibration = async (title: string, message: string, urge
       if (reg && "Notification" in window && Notification.permission === "granted") {
         reg.showNotification(title, {
           body: message,
-          tag: "golden-alarm",
-        } as any);
+          tag: "golden-alarm"
+        } as NotificationOptions);
         return;
       }
     }
