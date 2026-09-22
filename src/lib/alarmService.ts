@@ -39,7 +39,7 @@ export const playWhistleSound = () => {
 };
 
 // Android Safe Alarm & Vibration (Fixed TypeError)
-export const triggerAlarmVibration = async (title: string, message: string) => {
+export const triggerAlarmVibration = async (title: string, message: string, urgent: boolean = false) => {
   // 1. Mobile Physical Vibration
   if ("vibrate" in navigator) {
     navigator.vibrate([400, 200, 400, 200, 800]);
