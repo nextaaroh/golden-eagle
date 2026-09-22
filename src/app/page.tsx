@@ -482,14 +482,21 @@ export default function GoldenEagleHub() {
         const faceapi = await import("@vladmandic/face-api");
         faceApiRef.current = faceapi;
         const MODEL_URL = "https://cdn.jsdelivr.net/npm/@vladmandic/face-api/model";
+        
+        console.log("Loading face-api models...");
         await faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL);
         await faceapi.nets.faceLandmark68TinyNet.loadFromUri(MODEL_URL);
         await faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL);
 
-        startWebcam();
-        precomputeDescriptors(allMembers);
+        if (faceapi.nets.tinyFaceDetector.isLoaded) {
+          console.log("Models loaded successfully!");
+          startWebcam();
+          precomputeDescriptors(allMembers);
+        } else {
+          console.warn("Models failed to load properly.");
+        }
       } catch (err) {
-        startWebcam();
+        console.error("Error loading face engine models:", err);
       }
     }
     if (typeof window !== "undefined") loadFaceEngine();
