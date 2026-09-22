@@ -6,11 +6,11 @@ export interface TeamMember {
 // Yahan doston ka naam aur photo path rahega
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: "Shailesh",
+    name: "Shailesh chauhan",
     photoUrl: "/members/shailesh.jpg",
   },
   {
-    name: "Guleshwar",
+    name: "Guleshwar chauhan",
     photoUrl: "/members/guleshwar.jpg",
   },
   {
@@ -18,15 +18,15 @@ export const TEAM_MEMBERS: TeamMember[] = [
     photoUrl: "/members/vimal.jpg",
   },
   {
-    name: "Prithviraj",
+    name: "Prithviraj bunkar",
     photoUrl: "/members/prithviraj.jpg",
   },
   {
-    name: "Hemank",
+    name: "Hemank kumar",
     photoUrl: "/members/hemank.jpg",
   },
   {
-    name: "Mandeep",
+    name: "Mandeep kumar",
     photoUrl: "/members/mandeep.jpg",
   },
 ];
