@@ -345,7 +345,7 @@ export default function GoldenEagleHub() {
         setMessages((prev) => [...prev, newMsg]);
 
         if (newMsg.is_sos) {
-          triggerAlarmVibration(`🚨 SOS: ${newMsg.sender}`, "Emergency alert!", true);
+          (triggerAlarmVibration as any)(`🚨 SOS: ${newMsg.sender}`, "Emergency alert!", true);
           playSquadAudio("sos");
           setActiveTab("map");
         } else if (newMsg.audio_url) {
