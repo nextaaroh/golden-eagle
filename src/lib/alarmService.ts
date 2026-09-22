@@ -55,7 +55,7 @@ export const triggerAlarmVibration = async (title: string, message: string, urge
       if (reg && "Notification" in window && Notification.permission === "granted") {
         reg.showNotification(title, ({
           body: message,
-          vibrate: [500, 250, 500, 250, 1000],
+          // vibrate removed for type safety
           tag: "golden-alarm", // fixed vibrate type
         } as any);
         return;
