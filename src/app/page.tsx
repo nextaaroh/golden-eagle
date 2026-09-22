@@ -360,7 +360,7 @@ export default function GoldenEagleHub() {
       .on("postgres_changes", { event: "INSERT", schema: "public", table: "squad_pings" }, (p: any) => {
         const ping = p.new;
         if (currentUser && ping.target_user.toLowerCase() === currentUser.toLowerCase()) {
-          triggerAlarmVibration(`⏰ WAKE UP PING from ${ping.sent_by}`, "Squad bula raha hai! Turant utho!", true);
+          (triggerAlarmVibration as any)(`⏰ WAKE UP PING from ${ping.sent_by}`, "Squad bula raha hai! Turant utho!", true);
           playSquadAudio("wake_up");
         }
       })
@@ -403,7 +403,7 @@ export default function GoldenEagleHub() {
       const match = FITNESS_SCHEDULE.find((s) => s.time === timeStr);
       if (match && lastTriggeredAlarmRef.current !== timeStr) {
         lastTriggeredAlarmRef.current = timeStr;
-        triggerAlarmVibration(`🚨 ${match.title}`, match.desc);
+        (triggerAlarmVibration as any)(`🚨 ${match.title}`, match.desc);
         playSquadAudio(match.audio as any);
       }
     }, 1000);
@@ -613,7 +613,7 @@ export default function GoldenEagleHub() {
     if (!currentUser) return;
     const timeNow = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
-    triggerAlarmVibration(`🚨 SOS FROM ${currentUser}`, "Emergency alert!", true);
+    (triggerAlarmVibration as any)(`🚨 SOS FROM ${currentUser}`, "Emergency alert!", true);
     playSquadAudio("sos");
 
     await supabase.from("squad_messages").insert([
@@ -634,7 +634,7 @@ export default function GoldenEagleHub() {
         sent_by: currentUser,
       },
     ]);
-    triggerAlarmVibration("Ping Sent!", `Wake-up ping sent to ${targetUser}`);
+    (triggerAlarmVibration as any)("Ping Sent!", `Wake-up ping sent to ${targetUser}`);
   };
 
   const startVoiceRecording = async () => {
