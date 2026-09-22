@@ -53,7 +53,7 @@ export const triggerAlarmVibration = async (title: string, message: string, urge
     if ("serviceWorker" in navigator) {
       const reg = await navigator.serviceWorker.getRegistration();
       if (reg && "Notification" in window && Notification.permission === "granted") {
-        reg.showNotification(title, ({
+        reg.showNotification(title, {
           body: message,
           vibrate: [500, 250, 500, 250, 1000],
           tag: "golden-alarm",
