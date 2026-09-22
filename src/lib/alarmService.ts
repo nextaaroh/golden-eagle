@@ -57,7 +57,7 @@ export const triggerAlarmVibration = async (title: string, message: string, urge
           body: message,
           vibrate: [500, 250, 500, 250, 1000],
           tag: "golden-alarm",
-        });
+        } as any);
         return;
       }
     }
