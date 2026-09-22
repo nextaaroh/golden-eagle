@@ -83,3 +83,5 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: error.message || "Failed" }, { status: 500 });
   }
 }
+
+// Force update fix
