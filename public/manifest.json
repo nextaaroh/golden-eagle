@@ -1,0 +1,30 @@
+{
+  "name": "Golden Eagle Squad Hub",
+  "short_name": "Golden Eagle",
+  "start_url": "/?autostart=false",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Auto-Start 05:00 Workout",
+      "short_name": "Quick Start",
+      "description": "Direct launch PG Ground Workout Timer",
+      "url": "/?autostart=true",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
