@@ -6,6 +6,15 @@ self.addEventListener("activate", (e) => {
   e.waitUntil(clients.claim());
 });
 
+// Mandatory fetch listener for PWA installation prompt
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    fetch(event.request).catch(() => {
+      return caches.match(event.request);
+    })
+  );
+});
+
 // Background notification & vibration listener
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "ALARM_TRIGGER") {
